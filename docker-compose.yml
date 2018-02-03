@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  node:
+    build:
+      context: .
+      args:
+        - BOOST_VERSION=${BOOST_VERSION}
+        - BOOST_CHECKSUM=${BOOST_CHECKSUM}
+    env_file: .env
+    tmpfs: /tmp
+    volumes:
+     - /data
+    ports:
+      - 7075:7075
+      - 7075:7075/udp
